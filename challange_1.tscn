@@ -1,0 +1,135 @@
+[gd_scene load_steps=10 format=3 uid="uid://c6fe2o88r1w1q"]
+
+[ext_resource type="Theme" uid="uid://bdulrjb0rfs1e" path="res://theme.tres" id="1_p1bnv"]
+[ext_resource type="Texture2D" uid="uid://d28te2fxox3iy" path="res://duolingo_cura.png" id="2_v8vjd"]
+[ext_resource type="Script" path="res://challange_1.gd" id="2_xq5ou"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brtly"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.231373, 0.286275, 0.321569, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_2df8p"]
+color = Color(0.231373, 0.286275, 0.321569, 1)
+thickness = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lp2j"]
+bg_color = Color(0.219608, 0.27451, 0.309804, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5shvj"]
+bg_color = Color(0.576471, 0.827451, 0.203922, 1)
+border_width_bottom = 4
+border_color = Color(0.501961, 0.733333, 0.247059, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33fev"]
+bg_color = Color(0.576471, 0.827451, 0.203922, 1)
+border_color = Color(0.501961, 0.733333, 0.247059, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ccjx"]
+bg_color = Color(0.219608, 0.27451, 0.309804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 4
+border_color = Color(0.219608, 0.27451, 0.309804, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_top = 4.0
+
+[node name="ChallangeOne" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_p1bnv")
+script = ExtResource("2_xq5ou")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="QuestionVBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/QuestionVBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/QuestionVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+texture = ExtResource("2_v8vjd")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="QuestionLabel" type="Label" parent="PanelContainer/VBoxContainer/QuestionVBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_brtly")
+text = "7x8"
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer/QuestionVBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_2df8p")
+
+[node name="AnwsersContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="ResultLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_7lp2j")
+text = "Give it another try"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CheckButton" type="Button" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_5shvj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5shvj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_33fev")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_2ccjx")
+disabled = true
+text = "CHECK"
